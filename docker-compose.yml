@@ -5,7 +5,7 @@ services:
     container_name: quickelasticnetflow
     ports:
       - "5601"   # Kibana
-      - "2055:2055/udp" # Netflow/IPFIX UDP
+      - "${NETFLOW_PORT}:2055/udp" # Netflow/IPFIX UDP
     restart: unless-stopped
     volumes:
       - elastic_data:/usr/share/elasticsearch/data
