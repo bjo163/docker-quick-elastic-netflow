@@ -7,6 +7,7 @@ services:
       - "5601"   # Kibana
       - "${NETFLOW_PORT}:2055/udp" # Netflow/IPFIX UDP
     restart: unless-stopped
+    init: true
     volumes:
       - elastic_data:/usr/share/elasticsearch/data
     # environment:
