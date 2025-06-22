@@ -38,6 +38,7 @@ RUN echo "-Xms512m" >> /etc/elasticsearch/jvm.options.d/memory \
 
 EXPOSE 5601/tcp
 EXPOSE 2055/udp
+EXPOSE 9200/tcp
 
 CMD ["/bootstrap.sh"]
 HEALTHCHECK --interval=30s --start-period=120s CMD /healthcheck.sh

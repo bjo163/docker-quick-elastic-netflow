@@ -6,6 +6,7 @@ services:
     ports:
       - "5601"   # Kibana
       - "${NETFLOW_PORT}:2055/udp" # Netflow/IPFIX UDP
+      - "9200"
     restart: unless-stopped
     init: true
     environment:
