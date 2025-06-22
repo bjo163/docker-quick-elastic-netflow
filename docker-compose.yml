@@ -8,6 +8,8 @@ services:
       - "${NETFLOW_PORT}:2055/udp" # Netflow/IPFIX UDP
     restart: unless-stopped
     init: true
+    environment:
+      - TZ=Asia/Jakarta
     volumes:
       - elastic_data:/usr/share/elasticsearch/data
     # environment:

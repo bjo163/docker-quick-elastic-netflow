@@ -2,6 +2,9 @@ FROM debian:12
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends supervisor cron busybox-syslogd logrotate python3-apt apt-transport-https gnupg net-tools procps wget openjdk-17-jdk curl jq libterm-readline-perl-perl \
+ && ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime \
+ && echo "Asia/Jakarta" > /etc/timezone \
+ && dpkg-reconfigure -f noninteractive tzdata \
  && wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - \
  && echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-7.x.list \
  && apt-get update \
